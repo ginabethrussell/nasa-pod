@@ -1,0 +1,43 @@
+.menuDisplay {
+    width: 0;
+    overflow: hidden;
+    scroll-behavior: none;
+}
+.menuDisplay.display {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: midnightblue;
+    width: 200px;
+}
+
+.menuDisplay h3 {
+    font-size: 2rem;
+    margin: 30px 20px;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: left; 
+    display: inline-block;
+}
+.menuDisplay span {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif; 
+}
+.menuDisplay li {
+    width: auto;
+    height: 25px;
+    padding-left: 20px;
+}
+.menuDisplay ul {
+    margin-bottom: 30px;
+}
+.menuDisplay a {
+    font-size: 1.8rem;
+    color: white;
+    margin: 12px 0;
+    text-decoration: none;
+}

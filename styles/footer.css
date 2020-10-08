@@ -1,0 +1,15 @@
+/* Footer Component CSS*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: midnightblue;
+}
+
+.footer p {
+    color: white;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
