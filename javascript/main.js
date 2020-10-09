@@ -9,6 +9,15 @@ function buildMain(api){
         console.log(response.data);
         constructMainElements(response.data);
     })
+    .catch(err => {
+        const defaultObj = {
+            date: '2020-06-22',
+            title: '20th Anniversary ISS Poster',
+            explanation: '',
+            hdurl: 'images/default-iss-anniv.png'
+        }
+        constructMainElements(defaultObj);
+    })
     
     function constructMainElements(obj){
         const textContainer = document.createElement('div');
@@ -39,8 +48,13 @@ function buildMain(api){
 }
     
 
-const nasaApiPodStr = 'https://api.nasa.gov/planetary/apod?api_key=93HIdg6dILvLH6B3N38HAFAhLyTE2s9BauFO8Mof';
-const mainComponent = buildMain(nasaApiPodStr);
+const nasaApiPodKey = 'https://api.nasa.gov/planetary/apod?api_key=93HIdg6dILvLH6B3N38HAFAhLyTE2s9BauFO8Mof';
+
+//generates today's date to add as a param to the key
+const date = new Date().toISOString().split('T')[0];;
+const nasaApiReqStr = nasaApiPodKey + '&date=' + date;
+console.log(nasaApiReqStr);
+const mainComponent = buildMain(nasaApiReqStr);
 
 page.appendChild(mainComponent);
 
