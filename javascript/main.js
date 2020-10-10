@@ -51,7 +51,48 @@ function buildMain(api){
 const nasaApiPodKey = 'https://api.nasa.gov/planetary/apod?api_key=93HIdg6dILvLH6B3N38HAFAhLyTE2s9BauFO8Mof';
 
 //generates today's date to add as a param to the key
-const date = new Date().toISOString().split('T')[0];;
+let today = new Date();
+today = today.toString().split(' ');
+// Create month for date param
+switch (today[1]) {
+    case 'Jan':
+        today[1] = 01;
+        break;
+    case 'Feb':
+        today[1] = 02;
+        break;
+    case 'Mar':
+        today[1] = 03;
+        break;
+    case 'Apr':
+        today[1] = 04;
+        break;
+    case 'May':
+        today[1] = 05;
+        break;
+    case 'Jun':
+        today[1] = 06;
+        break;
+    case 'Jul':
+        today[1] = 07;
+        break;
+    case 'Aug':
+        today[1] = 08;
+        break;
+    case 'Sep':
+        today[1] = 09;
+        break;
+    case 'Oct':
+        today[1] = 10;
+        break;
+    case 'Nov':
+        today[1] = 11;
+        break;
+    default:
+        today[1] = 12
+}
+// Create date param YYYY-MM-DD
+const date = today[3] + '-' + today[1] + '-' + today[2];
 const nasaApiReqStr = nasaApiPodKey + '&date=' + date;
 console.log(nasaApiReqStr);
 const mainComponent = buildMain(nasaApiReqStr);
